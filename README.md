@@ -1,7 +1,7 @@
 # csharp_cheatSheet
 ``` csharp
 
-public static void main()
+public static void main(string[] args)
 {
   Console.WriteLine("Hello, World!);
 }
@@ -42,5 +42,23 @@ structure Alphabet
 void Foo(in Alphabet alphabet) {}
 void Boo(Alphabet alphabet) {} => в залежності від розмірів, швидкість роботи Foo буде більшою від Boo в n кількість разів.
 ``` 
-# 
+ # 
+# params Keyword
+## Використовується для зручного передавання безліччі параметрів у функцію.
+### For example
+``` csharp
+public int Sum(params int[] array)
+{
+  int sum = 0;
+  for(int i = 0; i < array.Length; i++)
+  {
+    sum += array[i];
+  }
+  return sum;
+}
 
+public static void main(string[] args)
+{
+    int sum = Sum(1,2,3,4);
+}
+```
