@@ -1,6 +1,6 @@
 # csharp_cheatSheet
-#In Ref Out modifiers
-In/ Ref/ Out - використовуються для передачі параметрів по ссилці. 
+# In Ref Out modifiers
+## In/ Ref/ Out - використовуються для передачі параметрів по ссилці. 
 наприклад 
 int intValue = 5; - value type.
 щоб змінити його треба передати його по ссилці в метод 
