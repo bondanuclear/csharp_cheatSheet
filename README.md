@@ -30,9 +30,9 @@ structure Alphabet
 void Foo(in Alphabet alphabet) {}
 void Boo(Alphabet alphabet) {} => в залежності від розмірів, швидкість роботи Foo буде більшою від Boo в n кількість разів.
 # 
-'''
+```
 public static void main()
 {
   Console.WriteLine("Hello, World!);
 }
-'''
+```
