@@ -62,3 +62,21 @@ public static void main(string[] args)
     int sum = Sum(1,2,3,4);
 }
 ```
+# Іменовані параметри
+## Дозволяють ігнорувати порядок подання параметрів у функцію
+### Example of using:
+``` csharp
+void int Sum(int a, int b, bool isLogging = false) // isLogging - так званий необов'язковий параметр, по дефолту завжди false.
+{
+  if(isLogging)
+  {
+    Console.WriteLine("a =" + a);
+    Console.WriteLine("b =" + b);
+  }
+  return a + b;
+}
+public static void main(string[] args)
+{
+  Sum(b: 5, a :14);
+}
+```
