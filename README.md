@@ -30,10 +30,4 @@ structure Alphabet
 void Foo(in Alphabet alphabet) {}
 void Boo(Alphabet alphabet) {} => в залежності від розмірів, швидкість роботи Foo буде більшою від Boo в n кількість разів.
 # 
-float myFloat = 0;
 
-myFloat += 2; // myNumber = myNumber + 2
-myFloat -= 2; // myNumber = myNumber - 2
-myFloat *= 2; // myNumber = myNumber * 2
-myFloat /= 2; // myNumber = myNumber / 2
-myFloat %= 2; // myNumber = myNumber % 2
