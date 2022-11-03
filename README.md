@@ -1,15 +1,24 @@
 # csharp_cheatSheet
+``` csharp
+
+public static void main()
+{
+  Console.WriteLine("Hello, World!);
+}
+```
 # In Ref Out modifiers
 ## In/ Ref/ Out - використовуються для передачі параметрів по ссилці. 
 Наприклад 
+``` csharp
 int intValue = 5; - value type.
-щоб змінити його треба передати його по ссилці в метод 
-ChangeValue(ref/out intValue);
+//щоб змінити його треба передати його по ссилці в метод 
+ChangeValue(ref intValue) || ChangeValue(out intValue);
 
 void ChangeValue(ref/out value)
 {
   value++;
 }
+```
 ### Difference between out and ref
 Різниця між out i ref в тому, що при модифікаторі out ми зобов'зані присвоїти змінній певне значення в методі. Це дозволяє передавати неініціалізовану змінну в метод.
 E.G треба змінити розмір масиву: int[] array = new int[4] => new int[10]
@@ -30,10 +39,4 @@ structure Alphabet
 void Foo(in Alphabet alphabet) {}
 void Boo(Alphabet alphabet) {} => в залежності від розмірів, швидкість роботи Foo буде більшою від Boo в n кількість разів.
 # 
-``` csharp
 
-public static void main()
-{
-  Console.WriteLine("Hello, World!);
-}
-```
