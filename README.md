@@ -99,3 +99,23 @@ public static void main(string[] args)
 ```
 ### Переповнення для типів double i float => це або ж Infinity(maxValue + maxValue) або NaN (0.0/0.0)
 ### Що стосується Decimal, то цей тип завжди викидає exception при переповненні, навіть при unchecked.
+
+# Оператор об'єднання з null
+### null - reference type.
+``` csharp
+ string str = null;
+ Console.WriteLine(str ?? "empty"); => if(str == null) ConsoleWriteLine("Empty");
+```
+# Оператор умовного null
+
+``` csharp
+ Array myArray = null;
+ myArray?.Sum(); => якщо myArray == null, то код не буде виконуватись.
+```
+
+# Оператор присвоєння null
+
+``` csharp
+ str ??= "empty"
+ => if(str == null) str = "empty";
+```
