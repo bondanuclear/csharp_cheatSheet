@@ -80,3 +80,19 @@ public static void main(string[] args)
   Sum(b: 5, a :14);
 }
 ```
+# Перевірка на арифметичне переповнення:
+## Наприклад, інтервал типу byte = [0,255]. а отже 
+## byte a = 0; a - 1 = 255;
+# Ключові слова checked/unchecked.
+``` csharp
+  public void TestChecked()
+  {
+    byte a = 0;
+    a = checked((byte) (a - 1));
+    або
+    checked
+    {
+      /// .....
+    }
+  }
+```
