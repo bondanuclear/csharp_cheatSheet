@@ -93,6 +93,7 @@ public static void main(string[] args)
     checked
     {
       /// .....
+      /// викине exception, якщо трапляється арифметичне переповнення.
     }
   }
 ```
