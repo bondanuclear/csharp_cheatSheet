@@ -135,3 +135,22 @@ public static void main(string[] args)
     // value - special variable
   }
 ```
+# Static constructors
+## Створюються один раз за повне існування програми. Перед всіма звичайними конструкторами та статичними методами
+
+### Статичний конструктор - ідеальне місце ініціалізації статичних даних нашого класу, якщо на момент написання програми цих даних ще немає. І потрібно отримати ці дані в момент виконання. Наприклад, для підключення до бази даних нам треба певний стрінг. В більш комплексних проектах використовується Dependency Injection
+
+``` csharp
+class DBRepository
+{
+  private static string connectionString;
+  static DBRepository() {
+      ConfigurationManager confMan = new ConfigurationManager();
+      connectionString = confMan.GetConnectionString();
+  }
+}
+class ConfigurationManager
+{
+  public string GetConnectionString(){return "db local";} // отримання даних з певного конфіг файлу.
+}
+```
