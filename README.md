@@ -124,3 +124,14 @@ public static void main(string[] args)
 ``` csharp
  int? a = null;
 ```
+# Properties
+## Те саме, що і гетери сетери.
+### get i set - accessors. => propfull - shortcut, prop - automatic properties => {get; set;}
+``` csharp
+  private int val;
+  public int Val {
+    get {  return val; }
+    set {val = value; }
+    // value - special variable
+  }
+```
