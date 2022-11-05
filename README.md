@@ -154,3 +154,19 @@ class ConfigurationManager
   public string GetConnectionString(){return "db local";} // отримання даних з певного конфіг файлу.
 }
 ```
+# Extension methods
+## Необхідні для розширення функціоналу класа або структури, без безпосереднього влізання в них. Наприклад, структура DateTime:
+``` csharp
+  DateTime currentDateTime = DateTime.Now;
+  // Для використання кастомного методу, який друкує дату, треба розширити цю структуру наступним чином
+  static class DateTimeExtension
+  {
+    public static PrintFullData(this DateTime currentDateTime)
+    {
+      Console.WriteLine(currentDateTime);
+    }
+  }
+  // Тепер ми можемо використати наше розширення
+  currentDateTime.Print(); // => this DateTime не потрібно передавати в параметри, оскільки це синтаксис для розширення конкретного класу чи структури
+  
+```
