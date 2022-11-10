@@ -20,3 +20,4 @@ void Update()
         transform.position += moveDir * cameraMoveSpeed * Time.deltaTime;
     }
 ```
+## Можна зробити так само з використанням напрямку камери.
