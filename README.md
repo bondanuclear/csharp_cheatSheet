@@ -203,9 +203,9 @@ public class Main(string[] args)
   //... 
   // можна так, але якщо наявний власний тип даних можна це зробити зручніше
   Person person2 = new Person {
-    age = 20;
-    name = "Robert";
-    Address = new Address {city = "New York"; country = "USA"; }  
+    age = 20,
+    name = "Robert",
+    Address = new Address {city = "New York", country = "USA", }  
   };
   
 }
