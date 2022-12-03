@@ -182,3 +182,31 @@ partial class MyClass {}
 ### модифікатор const робить значення незмінним, та потрібно для зручного використання певних незмінних даних в коді, таких як число PI.
 ## readonly поля - поля, які можна не ініціалізувати після об'явлення. тобто public readonly int a;
 ### можна об'явити статичним. Зазвичай використовуються як аналог до константних полів, лише з тією різницею, що якщо ми підтягуємо дані з бази даних/файлу, то в константне поле ці дані неможливо буде вписати. Для цього в конструкторі/статичному конструкторі ми readonly поля ініціалізуємо з потрібними даними. 
+# Зручний спосіб ініціалізації об'єктів класу
+``` csharp  
+public class Address {
+  public string city {get; set;}
+  public string country {get; set;}
+  
+}
+public class Person
+{
+  public int age {get; set;}
+  public string name {get; set;}
+  public Address address {get; set;}
+}
+public class Main(string[] args)
+{
+  Person person1 = new Person();
+  person1.age = 20; person.name = "Harry"; 
+  Address address1 = new Address(); 
+  //... 
+  // можна так, але якщо наявний власний тип даних можна це зробити зручніше
+  Person person2 = new Person {
+    age = 20;
+    name = "Robert";
+    Address = new Address {city = "New York"; country = "USA"; }  
+  };
+  
+}
+```
