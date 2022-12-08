@@ -278,3 +278,49 @@ public class Point3D : Point2D
     }
  } 
  ``` 
+# Наслідування інтерфейсів
+## Якщо у нас наприклад є гравець, який володіє вогнепальною зброєю і зберігає її в інвентарі, а нам треба додати холонду зброю, яку зе наприклад можна кидати, то вирішенням може бути наслідування інтерфейсів
+``` csharp
+interface IWeapon 
+{
+  int Damage {get;}
+  void Fire();
+}
+interface IThrowingWeapon : IWeapon
+{
+  void Throw();
+}
+// клас вогнепальної зброї
+class Pistol : IWeapon
+{
+  public int Damage => 5;
+  public void Fire()
+  {
+    Console.WriteLine("Shooting pistol");
+  }
+}
+// клас холодної зброї
+class Knife : IThrowingWeapon
+{
+  public int Damage => 10;
+  public void Fire() { Console.WriteLine("Swinging the knife"); }
+  public void Throw() {Console.WriteLine("Throwing the knife");}
+}
+class Player
+{
+  public void ShowWeapon(IWeapon weapon)
+  {
+      Console.WriteLine($"Weapon : {weapon.GetType().Name}  Deals Damage {weapon.Damage}");
+  }
+}
+public static void main(string[] args)
+{
+  Player player = new Player();
+  IWeapon weaponsInventory = {new Knife(), new Pistol()};
+  foreach(var item in weaponsInventory)
+  {
+    player.ShowWeapon(item);
+    // зараз ми можемо працювати і з холодною зброєю, і з вогнепальною без зміни коду
+  }
+}
+```
