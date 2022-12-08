@@ -210,3 +210,39 @@ public class Main(string[] args)
   
 }
 ```
+# base keyword
+``` csharp
+public class Point2D 
+{
+  public int X {get; set;}
+  public int Y {get; set;}
+  public Point2D(int x, int y)
+  {
+    X = x;
+    Y = y;
+  }
+  public void Print2D()
+  {
+    Console.WriteLine("x = " + X);
+    Console.WriteLine("y = " + Y);
+  }
+}
+public class Point3D : Point2D
+{
+  public int Z {get; set;}
+  // якщо конструктор без параметрів, то конструктор батьківського класу використовується автоматично. раніше, ніж конструктор
+  // успадкованого
+  // якщо конструктор з параметрами, то використовуєм base 
+  public Point3D(int x, int y, int z) : base(x,y)
+  {
+    Z = z;
+    
+  }
+  // або 
+  public void Print3D()
+  {
+    base.Print2D();
+    Console.WriteLine("z = " + Z);
+  }
+}
+```
