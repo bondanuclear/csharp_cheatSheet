@@ -324,3 +324,28 @@ public static void main(string[] args)
   }
 }
 ```
+# Явна реалізація інтерфейсів
+## Якщо 2 чи більше інтерфейсів описують методи з однаковими сигнатурами, то щоб кожен з них можна було реалізувати окремо ми явно реалізуємо їх
+``` csharp 
+  interface IFirst {void Action();}
+  interface ISecond { void Action();}
+  void F1(IFirst iFirst) { Console.WriteLine("first interface");}
+  void F2(ISecond iSecond) { Console.WriteLine("Second interface");}
+  class TestClass : IFirst, ISecond 
+  {
+    // public void Action() {Console.WriteLine("Action is happening");} // такий код означає, що реалізація однакова для обох інтерфейсів
+    public void IFirst.Action() {}
+    public void ISecond.Action() {}
+  }
+public static void main(string[] args)
+{
+  TestClass test = new TestClass();
+  F1(test);
+  F2(test);
+  IFirst firstAction = test as IFirst; // 
+  if(test is ISecond secondAction) 
+  {
+      secondAction.Action();
+  }
+}
+```
