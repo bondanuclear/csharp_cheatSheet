@@ -211,6 +211,8 @@ public class Main(string[] args)
 }
 ```
 # base keyword
+## Посилання на батьківський клас
+
 ``` csharp
 public class Point2D 
 {
@@ -246,3 +248,33 @@ public class Point3D : Point2D
   }
 }
 ```
+ # AS IS operators
+ ## as - використовується для явного приведення типу. is - для перевірки типу
+ ``` csharp
+ public void AsUse(object obj)
+ {
+    Point2D point = obj as Point2D;
+    // if obj is not Point2D then it'll be null
+    // else point will initialize as Point2D
+    if(point != null)
+    {
+      point.Print2D(); 
+    } 
+ } 
+ 
+ public void IsUse(object obj)
+ {
+    if(obj is Point2D)
+    {
+        point = (Point2D) obj;
+        point.Print2D();
+        // it is not comfortable     
+    }
+    // another way
+    // if obj is point2d then initialize point right away
+    if(obj is Point2D point)
+    {
+       point.Print2D();
+    }
+ } 
+ ``` 
