@@ -349,3 +349,5 @@ public static void main(string[] args)
   }
 }
 ```
+# IEnumerable and IEnumerator interfaces
+## IEnumerable says that our class can be enumerated, IEnumerator says how to do it.
