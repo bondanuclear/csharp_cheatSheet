@@ -351,3 +351,60 @@ public static void main(string[] args)
 ```
 # IEnumerable and IEnumerator interfaces
 ## IEnumerable says that our class can be enumerated, IEnumerator says how to do it.
+### If we have 1 million item, it may be better to take 1 number at the time using IEnumerable rather than allocating items into memory with ToList()
+### Either way, the best way to choose between IEnumerables and ToList is to use a benchmark.
+### if we have some function that returns a collection, it's better to return IEnumerable and use yield return, if possible.
+```csharp
+// for example. we have 1 million items. If we want to use only 5 of them,
+//  it would be wise to pull one number at the time to make performance
+// better
+IEnumerator<int> GetNumbers()
+{
+  for(int i = 0; i < 1000000; i++) {
+    Console.WriteLine($"Processed {i}");  
+    yield return i;
+  }
+}
+
+foreach(var number in GetNumbers())
+{
+  Console.WriteLine(number);
+  if(number > 5) break;
+}
+
+```
+## If we want to be able to iterate over our class, we have to implement IEnumerable iterface with GetEnumerator() method
+```csharp
+public class Example : IEnumerable
+{
+  List<string> names = new List<string>();
+  public IEnumerator GetEnumerator()
+  {
+    names.GetEnumerator();
+    // return new Test2(names);
+  }
+}
+```
+## If we want to create our custom IEnumerator, we have to implement IEnumerator interface, with methods MoveNext(), Reset(), property Current; Example and Test2 works together
+```csharp
+// for example
+public class Test2 : IEnumerator
+{
+  List<string> myList = new List<string>();
+  int currIndex = -1; // -1 because foreach loop automaticaly makes currIndex++
+  public Test2( List<string> myList)
+  {
+    this.myList = myList;
+  }
+  public void Reset()
+  {
+    currIndex = -1;
+  }
+  public bool MoveNext()
+  {
+    currIndex += 1;
+    return currIndex < myList.Count;
+  }
+  public object Current => myList[currIndex];
+}
+```
