@@ -408,7 +408,8 @@ public class Test2 : IEnumerator
   public object Current => myList[currIndex];
 }
 ```
-## If we want to use LINQ together with our IEnumerable, we have to make both IEnumerable and IEnumerator generic. By the way, there will be some additional methods to implement, if we use generics. For example IEnumerable.GetEnumerator() and IEnumerable<> GetEnumerator(). As for IEnumerator, we have to implement Dispose() method (though it's not necessary, which might be violating interface segregation principle ?? )
+## If we want to use LINQ together with our IEnumerable, we have to make both IEnumerable and IEnumerator generic. By the way, there will be some additional methods to implement, if we use generics.
+### For example IEnumerable.GetEnumerator() and IEnumerable<> GetEnumerator(). As for IEnumerator, we have to implement Dispose() method (though it's not necessary, which might violate interface segregation principle ?? )
   
 ```csharp
 public class Example : IEnumerable<string>
