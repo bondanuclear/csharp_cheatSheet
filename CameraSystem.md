@@ -180,3 +180,21 @@ private void HandleZooming_FieldOfView()
         Time.deltaTime * zoomingSpeed);
     }
 ```
+### Rotating Camera around object and following it without using Unity Engine methods
+``` csharp
+    [SerializeField] private Transform _followTarget;
+    [SerializeField] private float _angleRotationX = 0;
+    [SerializeField] private float _offsetY;
+    [SerializeField] private Vector3 _offsetCameraPosition;
+    [SerializeField] private float _distance = -10;
+    private void LateUpdate() {
+        if(_followTarget == null) return;
+
+        //Vector3 position = _followTarget.position + _offsetCameraPosition;
+        Quaternion rotation = Quaternion.Euler(_angleRotationX,0,0);
+        Vector3 position = rotation * new Vector3(0,0, _distance) + (_followTarget.position + _offsetCameraPosition);
+
+        transform.position = position;  
+        transform.rotation = rotation;
+    }
+```
