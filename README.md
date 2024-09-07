@@ -415,4 +415,9 @@ public class Test2 : IEnumerator
 public class Example : IEnumerable<string>
 public class Test2 : IEnumerator<string>
 ```
+## Problems with statics
+### Static methods or classes, especially Singleton pattern, lead to the implicit dependencies, which make our life harder (at code reading process)
+#### The best way to organize a class is to put all the dependencies at constructor, so that reader can see all explicit dependencies. </br> All the static methods (registration methods) should be controlled by dependency injection container and put in the same place to not create a lot of confusion. By using DI containers we can explicitly see the dependencies each class has. 
+### Problems with testing
+#### Since static methods lead to implicit dependencies, it becomes really hard to limit the frames of the testing.
 
