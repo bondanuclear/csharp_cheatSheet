@@ -8,3 +8,6 @@
 - time consuming I/O operations.
 
 #### ! Never use Task.WaitAll, because its synchronous and it will completely freeze the game.
+</br>
+
+### Async/Await also doesn't work in WebGL, but Awaitable has fixed this problem.
