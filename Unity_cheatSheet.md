@@ -6,3 +6,5 @@
 - algorithms with cubic time complexity;
 - image manipulation tasks;
 - time consuming I/O operations.
+
+#### ! Never use Task.WaitAll, because its synchronous and it will completely freeze the game.
