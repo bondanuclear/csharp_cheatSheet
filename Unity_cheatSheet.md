@@ -11,3 +11,5 @@
 </br>
 
 ### Async/Await also doesn't work in WebGL, but Awaitable has fixed this problem.
+<img width="623" alt="image" src="https://github.com/user-attachments/assets/3fa3ab80-a8ef-446a-9e0b-12a83f1d1eaa" />
+### We can also use Awaitable with all Unity functions that return AsyncOperation (Resource functions)
